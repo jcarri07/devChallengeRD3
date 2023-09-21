@@ -1,0 +1,133 @@
+:root {
+  --primary: #181719;
+  --white: #fff;
+}
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  height: 10vh;
+  width: 100%;
+  background-color: var(--primary);
+}
+
+.container-button {
+  display: none;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+  max-width: 1440px;
+}
+
+nav ul {
+  display: flex;
+}
+
+nav ul li {
+  display: flex;
+  margin: 0 1em;
+}
+
+nav li a::after {
+  display: flex;
+  content: "";
+  margin-top: 4px;
+  width: 100%;
+  height: 2px;    
+  opacity: 0;
+  transition: opacity 0.4s;
+  background-color: var(--white);
+}
+
+.menu a.selected::after {
+  opacity: 1;
+}
+
+.menu a.selected {
+  font-weight: 700;
+}
+
+.menu a:hover::after {
+  opacity: 0.6;
+}
+
+a {
+  color: var(--white);
+  font-family: Montserrat;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+@media (max-width: 580px) {
+
+  nav ul {
+    justify-content: flex-start;
+  }
+
+  nav li a::after {
+    display: flex;
+    content: "";
+    margin-top: 4px;
+    width: 100%;
+    height: 2px;    
+    opacity: 0;
+    transition: opacity 0.4s;
+    background-color: var(--white);
+  }
+  
+  .menu a.selected::after {
+    opacity: 1;
+  }
+  
+  .menu a.selected {
+    font-weight: 700;
+  }
+  
+  .menu a:hover::after {
+    opacity: 0.6;
+  }
+
+  .menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    gap: 2em;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    z-index: 1;
+    opacity: 0;
+    background-color: var(--primary);
+    pointer-events: none;
+    transition: opacity 0.3s;
+  }
+
+  .close-menu {
+    align-self: flex-end;
+    margin: 6%;
+    display: block;
+  }
+
+  .open-menu {
+    display: block;
+  }
+
+  .open-menu {
+    position: fixed;
+    left: 88.5%;
+  }
+
+  .menu_opened {
+    opacity: 1;
+    pointer-events: all;
+  }
+}
